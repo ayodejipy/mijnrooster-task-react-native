@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageSourcePropType, View } from 'react-native';
-import Avatar from './Avatar';
+import Avatar from '@/components/ui/Avatar';
 
 export interface AvatarGroupMember {
   image?: ImageSourcePropType;

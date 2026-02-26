@@ -11,6 +11,8 @@ import {
 import { useRouter } from 'expo-router';
 import { colors } from '../../../styles/tokens';
 import { formatDutchDate } from '../../../lib/date';
+import { useUserStore } from '@/store/useUserStore';
+import Avatar from '@/components/ui/Avatar';
 
 type IconData = typeof User02Icon;
 
@@ -34,6 +36,7 @@ const UPCOMING = [
 
 export default function HomeScreen() {
   const router = useRouter();
+  const { user } = useUserStore();
 
   return (
     <SafeAreaView className="flex-1 bg-white" style={{ backgroundColor: '#FFFFFF' }}>
@@ -44,21 +47,18 @@ export default function HomeScreen() {
         <View className="flex-row items-center justify-between px-4 pt-3 pb-5">
           <View accessible accessibilityRole="header">
             <Text className="text-sm text-gray-500">Goedemorgen,</Text>
-            <Text className="text-xl font-bold text-gray-900">Omar Rahman</Text>
+            <Text className="text-xl font-bold text-gray-900">{user.name}</Text>
           </View>
           <TouchableOpacity
-            className="border-primary-200 bg-primary-100 h-12 w-12 items-center justify-center rounded-full border-2"
             onPress={() => router.push('/profile')}
             accessibilityRole="button"
             accessibilityLabel="Go to profile"
             accessibilityHint="Opens your profile screen"
           >
-            <HugeiconsIcon
-              icon={User02Icon}
-              size={22}
-              color={colors.primary[500]}
-              strokeWidth={1.5}
-              accessible={false}
+            <Avatar
+              image={user.image}
+              initial={user.initial}
+              className="h-12 w-12 border-2 border-primary-200"
             />
           </TouchableOpacity>
         </View>

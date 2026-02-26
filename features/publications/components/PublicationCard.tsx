@@ -64,7 +64,7 @@ export const PublicationCard = memo(function PublicationCard({ item }: { item: P
         </View>
 
         {/* Title */}
-        <Text className="text-sm mb-1.5 font-semibold text-gray-950">{item.title}</Text>
+        <Text weight='semibold' className="text-sm mb-1.5 font-semibold text-gray-950">{item.title}</Text>
 
         {/* Description */}
         <Text className="mb-3 text-sm leading-4.75 text-[#4E5D69]" numberOfLines={2}>
@@ -80,7 +80,7 @@ export const PublicationCard = memo(function PublicationCard({ item }: { item: P
             accessibilityIgnoresInvertColors
           />
           <View>
-            <Text className="text-sm font-semibold text-gray-950">{item.author}</Text>
+            <Text weight='semibold' className="text-sm text-gray-950">{item.author}</Text>
             <View className="mt-0.5 flex-row items-center gap-1">
               <Text className="text-xs text-gray-400">{item.date}</Text>
               <Text className="text-xs text-gray-400">•</Text>

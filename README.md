@@ -21,13 +21,7 @@ npm install
 
 ### Environment Variables
 
-Create a `.env` file in the root directory:
-
-```env
-EXPO_PUBLIC_API_URL=http://localhost:3000
-```
-
-The app defaults to `http://localhost:3000` if this variable is not set. The current implementation uses seeded mock data with simulated network delays — no running backend is required to develop locally.
+The app defaults to `http://localhost:8081`. The current implementation uses seeded mock data with simulated network delays — no running backend is required to develop locally.
 
 ### Running the App
 

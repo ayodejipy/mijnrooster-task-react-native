@@ -3,7 +3,7 @@ import { View, TouchableOpacity } from 'react-native';
 import { Text } from '@/components/ui/text';
 import { colors } from '../../../styles/tokens';
 import { Shift } from '../types';
-import Avatar from './Avatar';
+import Avatar from '@/components/ui/Avatar';
 
 interface Props {
   shift: Shift;

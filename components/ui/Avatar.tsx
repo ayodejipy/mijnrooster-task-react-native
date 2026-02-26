@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, ImageSourcePropType, View } from 'react-native';
 import { Text } from '@/components/ui/text';
-import { cn } from '../../../lib/cn';
+import { cn } from '@/lib/cn';
 
 interface AvatarProps {
   image?: ImageSourcePropType;
@@ -38,9 +38,6 @@ export default function Avatar({ image, initial, color, size = 'md', className }
           source={image}
           className="h-full w-full"
           resizeMode="cover"
-          onError={(error) => {
-            console.error('Image load failed:', error.nativeEvent, 'URL:', image);
-          }}
         />
       ) : (
         <Text className={cn('font-bold text-white', textSizeClasses[size])}>{initial}</Text>

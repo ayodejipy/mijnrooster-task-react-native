@@ -13,6 +13,8 @@ import {
   ArrowRight01Icon,
 } from '@hugeicons/core-free-icons';
 import { colors } from '../../../styles/tokens';
+import { useUserStore } from '@/store/useUserStore';
+import Avatar from '@/components/ui/Avatar';
 
 type IconData = typeof User02Icon;
 
@@ -31,6 +33,8 @@ const STATS = [
 ];
 
 export default function ProfileScreen() {
+  const { user } = useUserStore();
+
   return (
     <SafeAreaView className="flex-1 bg-white" style={{ backgroundColor: '#FFFFFF' }}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
@@ -44,23 +48,15 @@ export default function ProfileScreen() {
       <View
         className="items-center border-b border-gray-100 pt-4 pb-6"
         accessible
-        accessibilityLabel="Omar Rahman, Medical Staff, Available"
+        accessibilityLabel={`${user.name}, ${user.role}, ${user.status === 'available' ? 'Beschikbaar' : 'Niet beschikbaar'}`}
       >
-        <View
-          className="border-primary-200 bg-primary-100 mb-3 items-center justify-center rounded-full border-4"
-          style={{ width: 88, height: 88 }}
-          accessible={false}
-        >
-          <HugeiconsIcon
-            icon={User02Icon}
-            size={42}
-            color={colors.primary[500]}
-            strokeWidth={1.5}
-            accessible={false}
-          />
-        </View>
-        <Text className="mb-1 text-lg font-bold text-gray-900" accessible={false}>Omar Rahman</Text>
-        <Text className="mb-2.5 text-sm text-gray-500" accessible={false}>Medisch Medewerker</Text>
+        <Avatar
+          image={user.image}
+          initial={user.initial}
+          className="mb-3 h-22 w-22 border-4 border-primary-200"
+        />
+        <Text className="mb-1 text-lg font-bold text-gray-900" accessible={false}>{user.name}</Text>
+        <Text className="mb-2.5 text-sm text-gray-500" accessible={false}>{user.role}</Text>
         <View
           className="rounded-full px-3 py-1"
           style={{ backgroundColor: colors.accent.success + '20' }}

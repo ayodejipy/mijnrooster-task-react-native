@@ -25,7 +25,7 @@ import {
 } from '@hugeicons/core-free-icons';
 import type { Shift } from '../types';
 import { cn } from '../../../lib/cn';
-import Avatar from './Avatar';
+import Avatar from '@/components/ui/Avatar';
 import AvatarGroup from './AvatarGroup';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
@@ -210,7 +210,7 @@ export default function ShiftDetailsModal({ visible, shift, onClose }: Props) {
             {currentShift.description ? (
               <View className="mb-5">
                 <Text className="mb-2 text-base font-semibold text-gray-800" accessibilityRole="header">Beschrijving</Text>
-                <Text className="text-sm leading-5 text-gray-600">{currentShift.description}</Text>
+                <Text className="text-sm leading-5 text-[#4E5D69">{currentShift.description}</Text>
               </View>
             ) : null}
 
